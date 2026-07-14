@@ -1,0 +1,108 @@
+.space-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  user-select: none;
+}
+
+.space-scoreboard {
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.space-score-val {
+  color: #66fcf1;
+}
+
+/* The Main Arcade Screen Wrapper Shield */
+.space-canvas-frame {
+  position: relative;
+  width: 480px;
+  height: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid #2f3b4c;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.space-canvas-layout {
+  display: block;
+}
+
+/* Interstitial Action Screens Overlay Layer */
+.space-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 12, 16, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.space-over-text {
+  color: #ff3366;
+  font-size: 36px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.space-win-text {
+  color: #86c232;
+  font-size: 36px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+/* Neon Interaction Controls Buttons */
+.space-action-btn {
+  background: #66fcf1;
+  color: #0b0c10;
+  border: none;
+  padding: 12px 35px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+  transition: all 0.2s ease;
+}
+
+.space-action-btn:hover {
+  background-color: #45f3ff;
+  transform: scale(1.05);
+}
+
+.space-tip {
+  color: #9aa0a6;
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: center;
+  max-width: 400px;
+  line-height: 1.4;
+}
+/* Update your scoreboard row layout */
+.space-scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 480px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.space-timer-val {
+  font-size: 20px;
+  transition: color 0.3s ease;
+}

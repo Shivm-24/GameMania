@@ -1,0 +1,157 @@
+/* Base Layout Container */
+.home-container {
+  background-color: #0b0c10;
+  color: #c5c6c7;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Header & Navigation Wrapper */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #1f2833;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.home-logo {
+  color: #66fcf1;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.home-search-bar {
+  padding: 10px 20px;
+  width: 300px;
+  background-color: #1f2833;
+  border: 1px solid #66fcf1;
+  color: #fff;
+  border-radius: 20px;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.home-search-bar:focus {
+  box-shadow: 0 0 8px rgba(102, 252, 241, 0.4);
+}
+
+/* Category Filter Layout */
+.home-categories-container {
+  display: flex;
+  gap: 12px;
+  margin: 30px 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+/* Category Buttons */
+.home-cat-btn {
+  background-color: #1f2833;
+  color: #c5c6c7;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.home-cat-btn:hover {
+  background-color: #2f3b4c;
+  color: #fff;
+}
+
+/* Active Category State */
+.home-cat-btn-active {
+  background-color: #66fcf1;
+  color: #0b0c10;
+}
+
+.home-cat-btn-active:hover {
+  background-color: #45f3ff;
+  color: #0b0c10;
+}
+
+/* Catalog Display Grid */
+.home-game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+/* Individual Interactive Game Card */
+.home-game-card {
+  background-color: #1f2833;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2f3b4c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* Elevated Hover Effect */
+.home-game-card:hover {
+  transform: translateY(-5px);
+  border-color: #66fcf1;
+  box-shadow: 0 8px 20px rgba(102, 252, 241, 0.15);
+}
+
+/* Card Visual Header */
+.home-game-img {
+  height: 140px;
+  background-color: #151c24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  user-select: none;
+}
+
+/* Text and Meta Styling */
+.home-game-info {
+  padding: 15px;
+}
+
+.home-game-title {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.home-game-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #9aa0a6;
+}
+
+.home-rating {
+  color: #45f3ff;
+  font-weight: bold;
+}
+
+/* Card Execution Action Button */
+.home-play-btn {
+  width: 100%;
+  background-color: #66fcf1;
+  color: #0b0c10;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background-color 0.2s ease;
+}
+
+.home-play-btn:hover {
+  background-color: #45f3ff;
+}

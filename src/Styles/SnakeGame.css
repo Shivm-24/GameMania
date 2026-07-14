@@ -1,0 +1,105 @@
+/* Core Game Engine Wrapper Layout */
+.snake-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Score Display Panels */
+.snake-score-board {
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.snake-score-val {
+  color: #66fcf1;
+}
+
+/* Playing Grid Viewport Shield */
+.snake-canvas-frame {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 3px solid #2f3b4c;
+}
+
+.snake-canvas-layout {
+  display: block;
+}
+
+/* Game State Overlay Interfaces (Start/Game Over) */
+.snake-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 12, 16, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.snake-over-text {
+  color: #ff3366;
+  font-size: 32px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+/* Arcade Action Navigation Buttons */
+.snake-action-btn {
+  background: #66fcf1;
+  color: #0b0c10;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.snake-action-btn:hover {
+  background-color: #45f3ff;
+  transform: scale(1.05);
+}
+
+/* User Instruction Tip Text */
+.snake-tip {
+  color: #9aa0a6;
+  margin-top: 15px;
+  font-size: 13px;
+}
+/* Styling for the new button */
+.snake-fullscreen-btn {
+  margin-left: 20px;
+  background: #66fcf1;
+  color: #151c24;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Fix background when in native browser fullscreen */
+.snake-container:fullscreen {
+  background-color: #151c24; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+

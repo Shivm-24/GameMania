@@ -1,0 +1,88 @@
+.darts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+.darts-scoreboard {
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.darts-score-val {
+  color: #66fcf1;
+}
+
+/* Core Board Display Shield Frame */
+.darts-canvas-frame {
+  position: relative;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #2f3b4c;
+  box-shadow: 0 0 25px rgba(102, 252, 241, 0.2), inset 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.darts-canvas-layout {
+  display: block;
+}
+
+/* Velocity Indicator Slider Core */
+.darts-power-bar-wrapper {
+  width: 300px;
+  height: 12px;
+  background-color: #1f2833;
+  border: 1px solid #2f3b4c;
+  border-radius: 6px;
+  margin: 25px 0 15px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.darts-power-indicator {
+  height: 100%;
+  background: linear-gradient(90deg, #86c232, #ff3366);
+  transition: width 0.05s linear;
+}
+
+/* Interactive Action Throw Button */
+.darts-action-btn {
+  background: #66fcf1;
+  color: #0b0c10;
+  border: none;
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(102, 252, 241, 0.3);
+  transition: all 0.2s ease;
+}
+
+.darts-action-btn:hover:not(:disabled) {
+  background-color: #45f3ff;
+  transform: scale(1.05);
+}
+
+.darts-action-btn:disabled {
+  background-color: #444;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.darts-tip {
+  color: #9aa0a6;
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: center;
+  max-width: 360px;
+  line-height: 1.4;
+}
