@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import '../Styles/SnakeGame.css';
 
 const GRID_SIZE = 20;
@@ -99,7 +99,7 @@ export default function SnakeGame() {
     };
     const gameLoop = setInterval(moveSnake, SPEED);
     return () => clearInterval(gameLoop);
-  }, [snake, dir, food, gameOver, isStarted, canvasSize]);
+  }, [snake, dir, food, gameOver, isStarted, canvasSize, generateNewFood]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -120,18 +120,27 @@ export default function SnakeGame() {
     ctx.shadowBlur = 0;
   }, [snake, food, canvasSize]);
 
-  const generateNewFood = (currentSnake) => {
+  const generateNewFood = useCallback((currentSnake) => {
     let newFood;
+  
     while (true) {
-      newFood = [
+      const randomFood = [
         Math.floor(Math.random() * (canvasSize / GRID_SIZE)),
         Math.floor(Math.random() * (canvasSize / GRID_SIZE))
       ];
-      const hitSnake = currentSnake.some(seg => seg[0] === newFood[0] && seg[1] === newFood[1]);
-      if (!hitSnake) break;
+  
+      const hitSnake = currentSnake.some(
+        seg => seg[0] === randomFood[0] && seg[1] === randomFood[1]
+      );
+  
+      if (!hitSnake) {
+        newFood = randomFood;
+        break;
+      }
     }
+  
     setFood(newFood);
-  };
+  }, [canvasSize]);
 
   const restartGame = () => {
     setSnake(INITIAL_SNAKE);

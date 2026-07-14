@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "../Styles/TicTacToe.css";
 
 function TicTacToe() {
@@ -95,7 +95,7 @@ useEffect(() => {
 
   return () => clearTimeout(timer);
 
-}, [board, isXTurn, winner]);
+}, [board, isXTurn, winner, makeAIMove]);
 
   const resetGame = () => {
   setBoard(Array(9).fill(""));
@@ -214,7 +214,7 @@ const getBestMove = () => {
 
 };
 
-const makeAIMove = () => {
+const makeAIMove = useCallback(() => {
   let move = -1;
 
   // 10% chance to make a random move
@@ -249,7 +249,7 @@ const makeAIMove = () => {
 
     setIsXTurn(true);
   }
-};
+}, [board, currentPlayer, leaderboard]);
 
 const checkWinner = (gameBoard) => {
 
