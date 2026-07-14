@@ -68,6 +68,28 @@ export default function SnakeGame() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [dir]);
 
+  const generateNewFood = useCallback((currentSnake) => {
+    let newFood;
+  
+    while (true) {
+      const randomFood = [
+        Math.floor(Math.random() * (canvasSize / GRID_SIZE)),
+        Math.floor(Math.random() * (canvasSize / GRID_SIZE))
+      ];
+  
+      const hitSnake = currentSnake.some(
+        seg => seg[0] === randomFood[0] && seg[1] === randomFood[1]
+      );
+  
+      if (!hitSnake) {
+        newFood = randomFood;
+        break;
+      }
+    }
+  
+    setFood(newFood);
+  }, [canvasSize]);
+  
   useEffect(() => {
     if (!isStarted || gameOver) return;
     const moveSnake = () => {
@@ -120,27 +142,7 @@ export default function SnakeGame() {
     ctx.shadowBlur = 0;
   }, [snake, food, canvasSize]);
 
-  const generateNewFood = useCallback((currentSnake) => {
-    let newFood;
-  
-    while (true) {
-      const randomFood = [
-        Math.floor(Math.random() * (canvasSize / GRID_SIZE)),
-        Math.floor(Math.random() * (canvasSize / GRID_SIZE))
-      ];
-  
-      const hitSnake = currentSnake.some(
-        seg => seg[0] === randomFood[0] && seg[1] === randomFood[1]
-      );
-  
-      if (!hitSnake) {
-        newFood = randomFood;
-        break;
-      }
-    }
-  
-    setFood(newFood);
-  }, [canvasSize]);
+ 
 
   const restartGame = () => {
     setSnake(INITIAL_SNAKE);

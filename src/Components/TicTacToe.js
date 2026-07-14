@@ -28,6 +28,7 @@ function TicTacToe() {
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
   }, [leaderboard]);
 
+  
   const startGame = () => {
 
     if (playerName.trim() === "") {
@@ -84,6 +85,44 @@ const handleClick = (index)=>{
     }
 
 };
+
+const makeAIMove = useCallback(() => {
+  let move = -1;
+
+  // 10% chance to make a random move
+  if (Math.random() < 0.05) {
+
+    const emptyCells = [];
+
+    board.forEach((cell, index) => {
+      if (cell === "") {
+        emptyCells.push(index);
+      }
+    });
+
+    move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+
+  }
+   else {
+
+    // 90% chance to use Minimax
+    move = getBestMove();
+
+   }
+
+  if (move !== -1) {
+
+    const newBoard = [...board];
+    newBoard[move] = "O";
+
+    setBoard(newBoard);
+
+    checkWinner(newBoard);
+
+    setIsXTurn(true);
+  }
+}, [board, currentPlayer, leaderboard]);
+
 // AI move 
 useEffect(() => {
 
@@ -214,42 +253,6 @@ const getBestMove = () => {
 
 };
 
-const makeAIMove = useCallback(() => {
-  let move = -1;
-
-  // 10% chance to make a random move
-  if (Math.random() < 0.05) {
-
-    const emptyCells = [];
-
-    board.forEach((cell, index) => {
-      if (cell === "") {
-        emptyCells.push(index);
-      }
-    });
-
-    move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-
-  }
-   else {
-
-    // 90% chance to use Minimax
-    move = getBestMove();
-
-   }
-
-  if (move !== -1) {
-
-    const newBoard = [...board];
-    newBoard[move] = "O";
-
-    setBoard(newBoard);
-
-    checkWinner(newBoard);
-
-    setIsXTurn(true);
-  }
-}, [board, currentPlayer, leaderboard]);
 
 const checkWinner = (gameBoard) => {
 
